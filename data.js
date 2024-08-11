@@ -107,5 +107,83 @@ const crudOperation = () => `
   - DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
 
 # Select Top
-  - Used to select the number of record that is specified.
+  - Used to select the number of record that is specified record with in the range.
+  - SELECT TOP 3 * FROM Customers;
+  - SELECT TOP number|percent column_name(s)
+      FROM table_name WHERE condition;
+    
+    # Limit 
+      - SELECT * FROM Customers LIMIT 3;
+    # Fetch First
+      - SELECT * FROM Customers FETCH FIRST 3 ROWS ONLY;
 `;
+
+const aggregateFunction = () => `
+# Aggregate Function
+  - An Aggregate Function is a function that perform a calculation on a set of values, and return a single value.
+  - Aggregate function are often used with the group by clause of the select statement.
+  - Aggregare function ignore null values except for count()
+
+# Min and Max
+  - Min - Return the smallest value of the selected column
+        - SELECT MIN(Price) FROM Products;
+  - Max - Return the largest value of the selected column
+        - SELECT MAX(Price) FROM Products;
+
+# Count 
+  - Count returns the number of rows that matches a specified criteria.
+  - SELECT COUNT(column_name)
+      FROM table_name WHERE condition;
+
+# Sum 
+  - Sum returns the total sum of a numeric column
+  - SELECT SUM(column_name)
+      FROM table_name WHERE condition;
+# Average
+  - Average retunr the average value of numeric columns.
+  - SELECT AVG(column_name)
+      FROM table_name WHERE condition;
+  
+# Like
+  - The Like operator is used in a WHERE clause to search for a specified pattern in a column
+  # 2 types of wildcard search
+     - %   -  'a%','%b%'
+     - _   - 'H__i_m'
+
+# SQL WildCart
+  - A Wildcart character is used to substitute one or more characters in a string.
+  - Wild cart character are used with the like opertor along with where conditions.
+
+# WildCart Example
+  - %	Represents zero or more characters
+      - SELECT * FROM Customers WHERE CustomerName LIKE '%es';
+      - Return all customers that ends with the pattern 'es':
+  - _	Represents a single character
+      - SELECT * FROM Customers WHERE City LIKE '_ondon';
+      - Return all customers with a City starting with any character, followed by "ondon"
+  - []	Represents any single character within the brackets *
+      - SELECT * FROM Customers WHERE CustomerName LIKE '[bsp]%';
+      - Return all customers starting with either "b", "s", or "p":
+      - SELECT * FROM Customers WHERE CustomerName LIKE '[a-f]%';
+      - Return all customers starting with "a", "b", "c", "d", "e" or "f":
+  - ^	Represents any character not in the brackets *
+  - -	Represents any single character within the specified range *
+  - {}	Represents any escaped character **
+
+# IN
+  - IN value allows you to specify multiple values in a where clause.
+  - SELECT * FROM Customers
+      WHERE Country IN ('Germany', 'France', 'UK');
+
+# Between
+  - The Between operator selects values within a given range.
+  - SELECT column_name(s) FROM table_name
+        WHERE column_name BETWEEN value1 AND value2;
+
+# Alais
+  - SQL Aliases are used to give a table, or a column in a table, a temporary name.
+  - SELECT CustomerID AS ID FROM Customers;
+  - Without space name 
+       - SELECT ProductName AS [My Great Products] FROM Products;
+`;
+const joins = () => {};
